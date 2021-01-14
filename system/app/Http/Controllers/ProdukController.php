@@ -20,9 +20,12 @@ class ProdukController extends Controller{
 		$produk->stock = request('stock');
 		$produk->berat = request('berat');
 		$produk->deskripsi = request('deskripsi');
+
+		$produk->handleDelete();
+		$produk->handleUpload();
+		
 		$produk->save();
 
-		$produk->handleUpload();
 
 		return redirect('admin/produk')->with('success', 'Data Berhasil Ditambahkan');
 	}
@@ -40,9 +43,12 @@ class ProdukController extends Controller{
 		$produk->stock = request('stock');
 		$produk->berat = request('berat');
 		$produk->deskripsi = request('deskripsi');
+		
+		$produk->handleDelete();
+		$produk->handleUpload();
+		
 		$produk->save();
 
-		$produk->handleUpload();
 		
 		return redirect('admin/produk')->with('warning', 'Data Berhasil Diedit');	
 	}
